@@ -26,7 +26,6 @@ html,body{
 body{
     background:var(--bg-void);
     color:var(--ink);
-    overflow-x:hidden;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -71,23 +70,77 @@ button{
     );
 }
 
-/* ================= CAPA ================= */
+/* ================= SISTEMA DE SLIDES ================= */
 
-.cover{
+.slide{
     position:fixed;
     inset:0;
-    z-index:10;
+    overflow-y:auto;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .5s ease, visibility .5s ease;
+    z-index:1;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    z-index:5;
+}
+
+.slide-inner{
+    position:relative;
+    min-height:100%;
+    padding:56px 6vw 60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.slide-nav{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:44px;
+}
+
+.nav-btn{
+    border:1px solid var(--line);
+    background:var(--bg-panel);
+    color:var(--ink);
+    padding:12px 22px;
+    border-radius:999px;
+    font-weight:600;
+    letter-spacing:.3px;
+    font-size:14px;
+    cursor:pointer;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.nav-btn:hover{
+    transform:translateY(-2px);
+}
+
+.nav-next{
+    border-color:var(--ember);
+    background:linear-gradient(160deg, rgba(255,90,53,.16), var(--bg-panel));
+}
+
+.nav-next:hover{
+    box-shadow:var(--shadow-ember);
+}
+
+/* ================= CAPA / ENCERRAMENTO (telas centralizadas) ================= */
+
+#slide-cover,
+#slide-end{
     display:flex;
     align-items:center;
     justify-content:center;
     background:radial-gradient(circle at 50% 40%, #1c1512, #070504 75%);
-    transition:opacity .6s ease, visibility .6s ease;
-}
-
-.cover.hidden{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
 }
 
 .cover-content{
@@ -110,6 +163,11 @@ button{
     animation:spin 6s linear infinite;
 }
 
+.cover-vinyl.slow{
+    animation-duration:14s;
+    opacity:.85;
+}
+
 .cover-label{
     text-transform:uppercase;
     letter-spacing:5px;
@@ -119,7 +177,7 @@ button{
     font-weight:600;
 }
 
-.cover h1{
+.cover-content h1{
     font-family:var(--font-display);
     font-weight:400;
     font-size:52px;
@@ -155,26 +213,52 @@ button{
     box-shadow:var(--shadow-ember);
 }
 
-/* ================= CONTEÚDO PRINCIPAL ================= */
+/* -- Encerramento: detalhes extra -- */
 
-.main-content{
+.end-deck{
     position:relative;
-    min-height:100vh;
-    padding:56px 6vw 40px;
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:opacity .6s ease, visibility .6s ease;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    width:170px;
+    height:170px;
+    margin:0 auto 34px;
 }
 
-.main-content.active{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
+.end-deck .cover-vinyl{
+    margin:0;
 }
+
+.end-tonearm{
+    position:absolute;
+    top:-18px;
+    right:-34px;
+    width:100px;
+    height:5px;
+    background:linear-gradient(90deg,#8a8177,#d8d0c4);
+    border-radius:3px;
+    transform:rotate(38deg);
+    transform-origin:right center;
+}
+
+.end-tonearm::after{
+    content:"";
+    position:absolute;
+    left:-2px;
+    top:-4px;
+    width:14px;
+    height:12px;
+    background:var(--ember);
+    border-radius:2px;
+    box-shadow:0 0 10px rgba(255,90,53,.6);
+}
+
+.end-credits{
+    color:var(--muted);
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:26px;
+    text-transform:uppercase;
+}
+
+/* ================= CABEÇALHO GERAL ================= */
 
 header{
     text-align:center;
@@ -203,9 +287,10 @@ header h1{
     color:var(--muted);
     margin-top:8px;
     font-size:16px;
+    text-align:center;
 }
 
-/* ================= TOCA-DISCOS ================= */
+/* ================= TOCA-DISCOS (linha do tempo) ================= */
 
 .deck{
     position:relative;
@@ -485,16 +570,122 @@ header h1{
     font-weight:600;
 }
 
+/* ================= SLIDE PANTERA ================= */
+
+.pantera-header{
+    max-width:680px;
+}
+
+.pantera-title{
+    letter-spacing:8px;
+}
+
+.factbox{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    max-width:900px;
+    width:100%;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    margin:32px 0 44px;
+}
+
+.fact{
+    background:var(--bg-panel);
+    padding:18px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.fact-label{
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:10.5px;
+    color:var(--amber);
+    font-weight:600;
+}
+
+.fact-value{
+    font-size:14px;
+    color:var(--ink);
+    line-height:1.4;
+}
+
+.chapters{
+    width:100%;
+    max-width:760px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.chapter{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:22px;
+    padding:22px 6px;
+    border-top:1px solid var(--line);
+}
+
+.chapter:last-child{
+    border-bottom:1px solid var(--line);
+}
+
+.chapter-year{
+    font-family:var(--font-display);
+    font-size:22px;
+    letter-spacing:1px;
+    color:var(--muted);
+    padding-top:2px;
+}
+
+.chapter-body h2{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:24px;
+    letter-spacing:.5px;
+    margin-bottom:8px;
+    color:var(--ink);
+}
+
+.chapter-body p{
+    font-size:14.5px;
+    line-height:1.7;
+    color:#d7d0c6;
+}
+
+.chapter.highlight{
+    background:linear-gradient(90deg, rgba(255,90,53,.08), transparent);
+    border-radius:8px;
+}
+
+.chapter.highlight .chapter-year{
+    color:var(--amber);
+}
+
+.chapter.tragedy .chapter-year{
+    color:var(--ember);
+}
+
+.chapter.tragedy .chapter-body h2{
+    color:var(--ember);
+}
+
 /* ================= DECORAÇÕES ================= */
 
 .guitar{
-    position:fixed;
+    position:absolute;
     right:-60px;
     bottom:-50px;
     font-size:260px;
     opacity:.04;
     transform:rotate(-20deg);
     z-index:-1;
+    pointer-events:none;
 }
 
 .wave{
@@ -530,8 +721,8 @@ header h1{
 /* ================= RESPONSIVO ================= */
 
 @media (max-width:640px){
-    .main-content{
-        padding:40px 5vw 32px;
+    .slide-inner{
+        padding:40px 5vw 40px;
     }
 
     .deck{
@@ -550,5 +741,14 @@ header h1{
 
     .note{
         padding:22px 20px;
+    }
+
+    .factbox{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .chapter{
+        grid-template-columns:1fr;
+        gap:6px;
     }
 }

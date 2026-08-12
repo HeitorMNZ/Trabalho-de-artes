@@ -1,6 +1,5 @@
-const cover = document.getElementById("cover");
-const mainContent = document.getElementById("mainContent");
-const startButton = document.getElementById("startButton");
+const slides = document.querySelectorAll(".slide");
+const gotoButtons = document.querySelectorAll("[data-goto]");
 
 const tracks = document.querySelectorAll(".track");
 const notes = document.querySelectorAll(".note");
@@ -11,14 +10,24 @@ const labelYear = document.getElementById("labelYear");
 const angles = [-22, -8, 4, 16, 26];
 const years = ["1900", "1950", "1970", "1980", "1990"];
 
-if (startButton) {
-    startButton.addEventListener("click", () => {
-        cover.classList.add("hidden");
-        mainContent.classList.add("active");
-    });
+function goToSlide(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    slides.forEach(slide => slide.classList.remove("active"));
+    target.classList.add("active");
+    target.scrollTop = 0;
+
+    if (id === "slide-cover") {
+        activateTrack(0);
+    }
 }
 
-function activate(index) {
+gotoButtons.forEach(button => {
+    button.addEventListener("click", () => goToSlide(button.dataset.goto));
+});
+
+function activateTrack(index) {
     tracks.forEach(track => track.classList.remove("active"));
     notes.forEach(note => note.classList.remove("active"));
 
@@ -31,9 +40,9 @@ function activate(index) {
 
 tracks.forEach(track => {
     track.addEventListener("click", () => {
-        activate(Number(track.dataset.index));
+        activateTrack(Number(track.dataset.index));
     });
 });
 
 // Estado inicial: agulha na primeira faixa
-activate(0);
+activateTrack(0);

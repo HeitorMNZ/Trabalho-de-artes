@@ -17,19 +17,20 @@
     <div class="noise"></div>
 </div>
 
-<!-- CAPA -->
-<div class="cover" id="cover">
+<!-- ============== SLIDE 1 — CAPA ============== -->
+<section class="slide active" id="slide-cover">
     <div class="cover-content">
         <div class="cover-vinyl" aria-hidden="true"></div>
         <p class="cover-label">Trabalho de Artes</p>
         <h1>Música Americana<br>ao Passar dos Anos</h1>
         <p class="cover-sub">Uma linha do tempo tocada em vinil, do Blues ao Heavy Metal</p>
-        <button class="start-button" id="startButton">Colocar a agulha ▸</button>
+        <button class="start-button" data-goto="slide-timeline">Colocar a agulha ▸</button>
     </div>
-</div>
+</section>
 
-<!-- CONTEÚDO -->
-<div class="main-content" id="mainContent">
+<!-- ============== SLIDE 2 — LINHA DO TEMPO ============== -->
+<section class="slide" id="slide-timeline">
+<div class="slide-inner">
 
     <header>
         <p class="eyebrow">Século XX — Estados Unidos</p>
@@ -54,7 +55,7 @@
         </div>
     </section>
 
-    <!-- TRACKLIST / LINHA DO TEMPO -->
+    <!-- TRACKLIST -->
     <nav class="tracklist" id="tracklist" aria-label="Selecionar época">
         <button class="track active" data-index="0">
             <span class="track-num">01</span>
@@ -88,7 +89,7 @@
         </button>
     </nav>
 
-    <!-- ENCARTE / LINER NOTES -->
+    <!-- ENCARTE -->
     <section class="liner-notes" id="linerNotes">
 
         <article class="note active" id="a">
@@ -155,11 +156,127 @@
         </svg>
     </div>
 
-    <div class="guitar" aria-hidden="true">🎸</div>
-
     <p class="quote">"O Heavy Metal nasceu da evolução do Blues e do Hard Rock."</p>
 
+    <div class="slide-nav">
+        <button class="nav-btn nav-next" data-goto="slide-pantera">Faixa bônus: Pantera ▸</button>
+    </div>
+
 </div>
+<div class="guitar" aria-hidden="true">🎸</div>
+</section>
+
+<!-- ============== SLIDE 3 — PANTERA ============== -->
+<section class="slide" id="slide-pantera">
+<div class="slide-inner">
+
+    <header class="pantera-header">
+        <p class="eyebrow">Faixa Bônus — Groove Metal</p>
+        <h1 class="glow pantera-title">PANTERA</h1>
+        <p class="subtitle">Arlington, Texas — de banda de garagem a ícone do heavy metal</p>
+    </header>
+
+    <div class="factbox">
+        <div class="fact">
+            <span class="fact-label">Origem</span>
+            <span class="fact-value">Arlington, Texas, EUA</span>
+        </div>
+        <div class="fact">
+            <span class="fact-label">Formação</span>
+            <span class="fact-value">1981</span>
+        </div>
+        <div class="fact">
+            <span class="fact-label">Gênero</span>
+            <span class="fact-value">Groove Metal / Thrash Metal</span>
+        </div>
+        <div class="fact">
+            <span class="fact-label">Formação clássica</span>
+            <span class="fact-value">Phil Anselmo, Dimebag Darrell, Rex Brown, Vinnie Paul</span>
+        </div>
+    </div>
+
+    <div class="chapters">
+
+        <article class="chapter">
+            <span class="chapter-year">1981</span>
+            <div class="chapter-body">
+                <h2>Os irmãos Abbott</h2>
+                <p>A banda nasce em Arlington, Texas, pelas mãos dos irmãos Vinnie Paul (bateria) e Darrell Abbott (guitarra). Junto de Terry Glaze (vocal) e Rex Brown (baixo), o Pantera passa seus primeiros anos tocando um som ainda ligado ao glam metal.</p>
+            </div>
+        </article>
+
+        <article class="chapter">
+            <span class="chapter-year">1986</span>
+            <div class="chapter-body">
+                <h2>Uma nova voz</h2>
+                <p>Phil Anselmo assume os vocais no lugar de Terry Glaze. O som da banda começa a ganhar peso, agressividade e uma identidade própria, se afastando cada vez mais do glam metal.</p>
+            </div>
+        </article>
+
+        <article class="chapter">
+            <span class="chapter-year">1990</span>
+            <div class="chapter-body">
+                <h2>Cowboys From Hell</h2>
+                <p>O álbum marca a virada definitiva: a banda deixa o glam metal para trás e assume um som mais pesado e técnico. É considerado o disco fundador do Groove Metal, subgênero que o Pantera ajudaria a popularizar.</p>
+            </div>
+        </article>
+
+        <article class="chapter highlight">
+            <span class="chapter-year">1992–94</span>
+            <div class="chapter-body">
+                <h2>O auge</h2>
+                <p><strong>Vulgar Display of Power</strong> (1992) traz clássicos como "Walk" e "Mouth for War" e se torna um dos discos mais influentes do metal dos anos 90. Em 1994, <strong>Far Beyond Driven</strong> chega ao topo da Billboard 200 — um feito raríssimo para uma banda de heavy metal.</p>
+            </div>
+        </article>
+
+        <article class="chapter">
+            <span class="chapter-year">1996–2000</span>
+            <div class="chapter-body">
+                <h2>Tensão interna</h2>
+                <p>As relações dentro da banda ficam desgastadas: <strong>The Great Southern Trendkill</strong> (1996) chega a ser gravado com os membros trabalhando separadamente. Em 2000, <strong>Reinventing the Steel</strong> é lançado como o último álbum de estúdio antes do fim da banda.</p>
+            </div>
+        </article>
+
+        <article class="chapter tragedy">
+            <span class="chapter-year">2004</span>
+            <div class="chapter-body">
+                <h2>A tragédia</h2>
+                <p>Em 8 de dezembro de 2004, Dimebag Darrell é assassinado no palco durante uma apresentação de sua nova banda, Damageplan. A data é lembrada até hoje como um dos dias mais sombrios da história do heavy metal.</p>
+            </div>
+        </article>
+
+        <article class="chapter">
+            <span class="chapter-year">Legado</span>
+            <div class="chapter-body">
+                <h2>Uma marca permanente</h2>
+                <p>Com cerca de 20 milhões de discos vendidos, o Pantera é hoje considerado uma das bandas mais influentes da história do heavy metal — responsável por popularizar o Groove Metal e por inspirar gerações de guitarristas com o estilo único de Dimebag Darrell.</p>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="slide-nav">
+        <button class="nav-btn nav-back" data-goto="slide-timeline">◂ Voltar à linha do tempo</button>
+        <button class="nav-btn nav-next" data-goto="slide-end">Encerrar ▸</button>
+    </div>
+
+</div>
+</section>
+
+<!-- ============== SLIDE 4 — ENCERRAMENTO ============== -->
+<section class="slide" id="slide-end">
+    <div class="cover-content end-content">
+        <div class="end-deck" aria-hidden="true">
+            <div class="cover-vinyl slow"></div>
+            <div class="end-tonearm"></div>
+        </div>
+        <p class="cover-label">Fim da reprodução</p>
+        <h1>Obrigado<br>por ouvir</h1>
+        <p class="cover-sub">Do Blues ao Groove Metal, a música americana do século XX moldou o som do rock que ouvimos até hoje.</p>
+        <p class="end-credits">Trabalho de Artes — Música Americana ao Passar dos Anos</p>
+        <button class="start-button" data-goto="slide-cover">Recomeçar ↺</button>
+    </div>
+</section>
 
 <script src="script.js"></script>
 </body>
