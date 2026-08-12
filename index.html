@@ -1,140 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Origem do Rock e do Heavy Metal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Origem do Rock e do Heavy Metal</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="background">
-        <div class="noise"></div>
-    </div>
+<div class="background">
+    <div class="noise"></div>
+</div>
 
-    <div class="cover" id="cover">
-        <div class="cover-content">
-            <p class="cover-label">Trabalho de Artes</p>
-            <h1>Música Americana ao Passar dos Anos</h1>
-            <button class="start-button" id="startButton">Avançar para o slide</button>
-        </div>
+<!-- CAPA -->
+<div class="cover" id="cover">
+    <div class="cover-content">
+        <div class="cover-vinyl" aria-hidden="true"></div>
+        <p class="cover-label">Trabalho de Artes</p>
+        <h1>Música Americana<br>ao Passar dos Anos</h1>
+        <p class="cover-sub">Uma linha do tempo tocada em vinil, do Blues ao Heavy Metal</p>
+        <button class="start-button" id="startButton">Colocar a agulha ▸</button>
     </div>
+</div>
 
-    <div class="main-content" id="mainContent">
+<!-- CONTEÚDO -->
+<div class="main-content" id="mainContent">
+
     <header>
-
+        <p class="eyebrow">Século XX — Estados Unidos</p>
         <h1 class="glow">ORIGEM DO ROCK</h1>
-
-        <p>Da influência do Blues ao surgimento do Heavy Metal</p>
-
+        <p class="subtitle">Da influência do Blues ao surgimento do Heavy Metal</p>
     </header>
 
-    <div class="timeline">
-
-        <div class="point p1" data-card="a" role="button" tabindex="0">
-            <span class="year">1900</span>
+    <!-- TOCA-DISCOS -->
+    <section class="deck" aria-hidden="true">
+        <div class="turntable">
+            <div class="vinyl" id="vinyl">
+                <div class="vinyl-label">
+                    <span class="label-year" id="labelYear">1900</span>
+                    <span class="label-sub">RPM</span>
+                </div>
+            </div>
+            <div class="tonearm" id="tonearm">
+                <div class="tonearm-pivot"></div>
+                <div class="tonearm-rod"></div>
+                <div class="tonearm-head"></div>
+            </div>
         </div>
+    </section>
 
-        <div class="point p2" data-card="b" role="button" tabindex="0">
-            <span class="year">1950</span>
-        </div>
+    <!-- TRACKLIST / LINHA DO TEMPO -->
+    <nav class="tracklist" id="tracklist" aria-label="Selecionar época">
+        <button class="track active" data-index="0">
+            <span class="track-num">01</span>
+            <span class="track-year">1900–1920</span>
+            <span class="track-genre">Blues &amp; Gospel</span>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <button class="track" data-index="1">
+            <span class="track-num">02</span>
+            <span class="track-year">1950</span>
+            <span class="track-genre">Rock 'n' Roll</span>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <button class="track" data-index="2">
+            <span class="track-num">03</span>
+            <span class="track-year">1970</span>
+            <span class="track-genre">Hard Rock</span>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <button class="track" data-index="3">
+            <span class="track-num">04</span>
+            <span class="track-year">1980</span>
+            <span class="track-genre">Groove Metal</span>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <button class="track" data-index="4">
+            <span class="track-num">05</span>
+            <span class="track-year">1990</span>
+            <span class="track-genre">Groove Metal</span>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+    </nav>
 
-        <div class="point p3" data-card="c" role="button" tabindex="0">
-            <span class="year">1970</span>
-        </div>
+    <!-- ENCARTE / LINER NOTES -->
+    <section class="liner-notes" id="linerNotes">
 
-        <div class="point p4" data-card="d" role="button" tabindex="0">
-            <span class="year">1980</span>
-        </div>
+        <article class="note active" id="a">
+            <span class="note-eyebrow">Faixa 01 — 1900–1920</span>
+            <h2>Raízes</h2>
+            <ul>
+                <li>Blues</li>
+                <li>Gospel</li>
+                <li>Ritmos afro-americanos</li>
+            </ul>
+        </article>
 
-        <div class="point p5" data-card="e" role="button" tabindex="0">
-            <span class="year">1990</span>
-        </div>
+        <article class="note" id="b">
+            <span class="note-eyebrow">Faixa 02 — 1950</span>
+            <h2>O Nascimento</h2>
+            <ul>
+                <li>Rock 'n' Roll</li>
+                <li>Guitarra elétrica</li>
+                <li>Riffs marcantes</li>
+            </ul>
+        </article>
 
-    </div>
+        <article class="note" id="c">
+            <span class="note-eyebrow">Faixa 03 — 1970</span>
+            <h2>Peso e Distorção</h2>
+            <ul>
+                <li>Hard Rock</li>
+                <li>Distorção</li>
+                <li>Amplificadores valvulados</li>
+            </ul>
+        </article>
 
-    <div class="card fade" id="a">
-        <h2>1900–1920</h2>
+        <article class="note" id="d">
+            <span class="note-eyebrow">Faixa 04 — 1980</span>
+            <h2>Groove Metal</h2>
+            <ul>
+                <li>Groove Metal</li>
+                <li>Riffs pesados</li>
+                <li>Energia intensa</li>
+            </ul>
+            <div class="image-wrapper">
+                <img src="https://aprendaviolaoeguitarra.com.br/wp-content/uploads/2017/08/dimebag-darrell-dean-guitar.jpg" alt="Dimebag Darrell tocando guitarra" />
+                <span class="image-caption">É a minha favorita</span>
+            </div>
+        </article>
 
-        <ul>
-            <li>Blues</li>
-            <li>Gospel</li>
-            <li>Ritmos afro-americanos</li>
-        </ul>
-    </div>
+        <article class="note" id="e">
+            <span class="note-eyebrow">Faixa 05 — 1990</span>
+            <h2>Groove &amp; Sincopado</h2>
+            <ul>
+                <li>Groove Metal</li>
+                <li>Afinações graves</li>
+                <li>Ritmos sincopados</li>
+                <li>Harmônicos artificiais</li>
+            </ul>
+        </article>
 
-    <div class="card fade" id="b">
-        <h2>1950</h2>
-
-        <ul>
-            <li>Rock 'n' Roll</li>
-            <li>Guitarra elétrica</li>
-            <li>Riffs marcantes</li>
-        </ul>
-    </div>
-
-    <div class="card fade" id="c">
-        <h2>1970</h2>
-
-        <ul>
-            <li>Hard Rock</li>
-            <li>Distorção</li>
-            <li>Amplificadores valvulados</li>
-        </ul>
-    </div>
-
-    <div class="card fade" id="d">
-        <h2>1980</h2>
-
-        <ul>
-            <li>Groove Metal</li>
-            <li>Riffs pesados</li>
-            <li>Energia intensa</li>
-        </ul>
-
-        <div class="image-wrapper">
-            <img src="https://aprendaviolaoeguitarra.com.br/wp-content/uploads/2017/08/dimebag-darrell-dean-guitar.jpg" alt="Dimebag Darrell" />
-            <span class="image-caption">É a minha favorita</span>
-        </div>
-    </div>
-
-    <div class="card fade" id="e">
-        <h2>1990</h2>
-
-        <ul>
-            <li>Groove Metal</li>
-            <li>Afinações graves</li>
-            <li>Ritmos sincopados</li>
-            <li>Harmônicos artificiais</li>
-        </ul>
-    </div>
+    </section>
 
     <div class="wave">
-
-        <svg viewBox="0 0 1200 120">
-
-            <path
-                d="M0,60 C120,10 240,110 360,60 S600,10 720,60 S960,110 1200,60"
-                stroke="white"
-                stroke-width="2"
-                fill="none"/>
-
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,60 C120,10 240,110 360,60 S600,10 720,60 S960,110 1200,60"
+                  stroke="white" stroke-width="2" fill="none"/>
         </svg>
-
     </div>
 
-    <div class="guitar">
-        🎸
-    </div>
+    <div class="guitar" aria-hidden="true">🎸</div>
 
-    <div class="quote">
-        "O Heavy Metal nasceu da evolução do Blues e do Hard Rock."
-    </div>
-    </div>
+    <p class="quote">"O Heavy Metal nasceu da evolução do Blues e do Hard Rock."</p>
 
-    <script src="script.js"></script>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>

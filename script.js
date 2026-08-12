@@ -1,8 +1,15 @@
-const points = document.querySelectorAll(".point");
-const cards = document.querySelectorAll(".card");
 const cover = document.getElementById("cover");
 const mainContent = document.getElementById("mainContent");
 const startButton = document.getElementById("startButton");
+
+const tracks = document.querySelectorAll(".track");
+const notes = document.querySelectorAll(".note");
+const tonearm = document.getElementById("tonearm");
+const labelYear = document.getElementById("labelYear");
+
+// Ângulo do braço do toca-discos para cada época (do início ao fim do disco)
+const angles = [-22, -8, 4, 16, 26];
+const years = ["1900", "1950", "1970", "1980", "1990"];
 
 if (startButton) {
     startButton.addEventListener("click", () => {
@@ -11,32 +18,22 @@ if (startButton) {
     });
 }
 
-function showCard(targetCardId) {
-    cards.forEach(card => {
-        card.classList.remove("show");
-    });
+function activate(index) {
+    tracks.forEach(track => track.classList.remove("active"));
+    notes.forEach(note => note.classList.remove("active"));
 
-    points.forEach(point => {
-        point.classList.remove("active");
-    });
+    tracks[index].classList.add("active");
+    notes[index].classList.add("active");
 
-    const selectedCard = document.getElementById(targetCardId);
-    if (selectedCard) {
-        selectedCard.classList.add("show");
-    }
+    tonearm.style.transform = `rotate(${angles[index]}deg)`;
+    labelYear.textContent = years[index];
 }
 
-points.forEach(point => {
-    point.addEventListener("click", () => {
-        showCard(point.dataset.card);
-        point.classList.add("active");
-    });
-
-    point.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            showCard(point.dataset.card);
-            point.classList.add("active");
-        }
+tracks.forEach(track => {
+    track.addEventListener("click", () => {
+        activate(Number(track.dataset.index));
     });
 });
+
+// Estado inicial: agulha na primeira faixa
+activate(0);
